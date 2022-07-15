@@ -5,17 +5,19 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
 } from "firebase/auth";
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAPYyfyp81AtA9Ic6tJiuf5Ai9ApABGKzk",
-  authDomain: "gokeep-db.firebaseapp.com",
-  projectId: "gokeep-db",
-  storageBucket: "gokeep-db.appspot.com",
-  messagingSenderId: "745101248034",
-  appId: "1:745101248034:web:fa616056ac342eff7a6c7b",
+  apiKey: "AIzaSyDbCBwaXCuamCa5v6r74DnOOGq6I-3nk9k",
+  authDomain: "go-keep-db.firebaseapp.com",
+  projectId: "go-keep-db",
+  storageBucket: "go-keep-db.appspot.com",
+  messagingSenderId: "10760831792",
+  appId: "1:10760831792:web:995a597f219faf3365bef5",
 };
 
 // Initialize Firebase
@@ -70,3 +72,8 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 
   return await signInWithEmailAndPassword(auth, email, password);
 };
+
+export const signOutUser = async () => await signOut(auth);
+
+export const onAuthStateChangedListener = (callback) =>
+  onAuthStateChanged(auth, callback);
