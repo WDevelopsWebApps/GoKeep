@@ -57,7 +57,6 @@ const PaymentForm = () => {
     } else {
       if (paymentResult.paymentIntent.status === "succeeded") {
         alert("Payment Successful");
-        console.log(paymentResult);
       }
     }
   };
